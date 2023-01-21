@@ -12,8 +12,16 @@
     <None Include="node_modules\@tailwindcss\forms\dist\*.css" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AlpineIntegration" Version="1.0.0" />
+  </ItemGroup>
+
   <Target Name="Tailwind" BeforeTargets="Build">
     <Exec Command="npm run style:build" />
+  </Target>
+
+    <Target Name="Alpinejs" BeforeTargets="Build">
+    <Exec Command="npx rollup --config" />
   </Target>
 
 </Project>
