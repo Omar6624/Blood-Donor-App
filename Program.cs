@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Blood_Donor_App_v4.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Blood_Donor_App_v4Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Blood_Donor_App_v4Context") ?? throw new InvalidOperationException("Connection string 'Blood_Donor_App_v4Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
