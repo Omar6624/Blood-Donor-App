@@ -4,33 +4,53 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="min-h-full flex">
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div class="mx-auto w-full max-w-sm lg:w-96">
+            <div>
+                <img class="h-12 w-auto" src="~/svg/logo.svg" alt="Workflow">
+                <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Sign up as a <span class="text-rose-400">DONOR</span> </h2>
 
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+            <div class="mt-8">
+
+                <div class="mt-6">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-6">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div>
+                            <label asp-for="Input.Email" class="block text-sm font-medium text-gray-700"> Email </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.Email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.Email" class="text-rose-600"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <label asp-for="Input.Password" class="block text-sm font-medium text-gray-700"> Password </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.Password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.Password" class="text-rose-600"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <label asp-for="Input.ConfirmPassword" class="block text-sm font-medium text-gray-700"> Confirm Password </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.ConfirmPassword" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-rose-600"></span>
+                            </div>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-400 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
+        </div>
     </div>
-    <div class="col-md-6 col-md-offset-2">
+    <div class="hidden lg:block relative w-0 flex-1">
+        <img class="absolute inset-0 h-full w-full object-cover" src="~/svg/reg-page-pic.svg" alt="">
+    </div>
+</div>
+@*    <div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>
             <hr />
@@ -59,8 +79,7 @@
                 }
             }
         </section>
-    </div>
-</div>
+    </div>*@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
