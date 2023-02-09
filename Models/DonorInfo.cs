@@ -3,12 +3,12 @@
 
 namespace Blood_Donor_App_v4.Models
 {
-    public class Donor_info
+    public class DonorInfo
     {
         [Required]
         public int Id { get; set; }
         [Required]
-        public string  Phone_number { get; set; }
+        public string  PhoneNumber { get; set; }
         [Required]
         public string Gender { get; set; }
 
