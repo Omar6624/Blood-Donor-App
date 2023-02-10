@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Blood_Donor_App_v4.Areas.Identity.Pages.Account;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Blood_Donor_App_v4.Models
@@ -14,5 +15,7 @@ namespace Blood_Donor_App_v4.Models
 
         [Required]
         public string Address { get; set; }
+
     }
+        
 }
