@@ -1,7 +1,6 @@
 ﻿using Blood_Donor_App_v4.Areas.Identity.Pages.Account;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Blood_Donor_App_v4.Models
 {
     public class DonorInfo
