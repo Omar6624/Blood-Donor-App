@@ -126,8 +126,8 @@ namespace Blood_Donor_App_v4.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-
-                /*                user.Name = Input.Name;
+/*
+                                user.Name = Input.Name;
                                 user.Address = Input.Address;
                                 user.Gender = Input.Address;
                                 user.BloodType = Input.Address;*/
