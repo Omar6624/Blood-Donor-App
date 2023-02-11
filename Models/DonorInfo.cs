@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Blood_Donor_App_v4.Models
 {
-    public class DonorInfo: IdentityUser
+    public class DonorInfo 
     {
         [Required]
         [Key]

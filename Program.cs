@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Blood_Donor_App_v4Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Blood_Donor_App_v4Context") ?? throw new InvalidOperationException("Connection string 'Blood_Donor_App_v4Context' not found.")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<Blood_Donor_App_v4Context>();
 
 // Add services to the container.

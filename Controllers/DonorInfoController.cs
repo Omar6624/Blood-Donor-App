@@ -2,6 +2,7 @@
 using Blood_Donor_App_v4.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blood_Donor_App_v4.Controllers
 {
@@ -16,7 +17,7 @@ namespace Blood_Donor_App_v4.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.DonorInfo.ToListAsync());
         }
 
         //Get:DonorInfo/Create
