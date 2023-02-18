@@ -129,7 +129,7 @@ namespace Blood_Donor_App_v4.Areas.Identity.Pages.Account
 
 
                 user.Name = Input.Name;
-                user.Address = Input.Address;
+                user.Address = Input.Address.ToLower();
                 user.Gender = Input.Gender;
                 user.BloodType = Input.BloodType;
                 user.PhoneNumber = Input.PhoneNumber;
