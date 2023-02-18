@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using Blood_Donor_App_v4.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -126,11 +127,11 @@ namespace Blood_Donor_App_v4.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-/*
-                                user.Name = Input.Name;
-                                user.Address = Input.Address;
-                                user.Gender = Input.Address;
-                                user.BloodType = Input.Address;*/
+
+                user.Name = Input.Name;
+                user.Address = Input.Address;
+                user.Gender = Input.Gender;
+                user.BloodType = Input.BloodType;
                 user.PhoneNumber = Input.PhoneNumber;
                
 
@@ -174,11 +175,11 @@ namespace Blood_Donor_App_v4.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private DonorOtherInfo CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<DonorOtherInfo>();
             }
             catch
             {
