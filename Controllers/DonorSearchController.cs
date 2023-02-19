@@ -37,16 +37,27 @@ namespace Blood_Donor_App_v4.Controllers
 
             /*return View(await _context.DonorOtherInfo.ToListAsync();*/
         }
-        public async Task<IActionResult> Mail()
+        public async Task<IActionResult> Mail(string DonorEmail,string UserLoc , string UserBlood , string UserNumber,string DonorBlood)
         {
+            string[] em = DonorEmail.Split(',');
             var mailMessage = new MimeMessage();
             mailMessage.From.Add(new MailboxAddress("Donor", "postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org"));
-            mailMessage.To.Add(new MailboxAddress("Omar", "omarfaruktasnim555@gmail.com"));
-            mailMessage.To.Add(new MailboxAddress("Omar", "naimulislam19149@gmail.com"));
+
+            foreach (string EmailAddress in em)
+            {
+                mailMessage.Cc.Add(new MailboxAddress("SenderEmail", EmailAddress));
+            }
+
+
+
+            /*mailMessage.To.Add(new MailboxAddress("Omar", "naimulislam19149@gmail.com"));*/
             mailMessage.Subject = "subject";
             mailMessage.Body = new TextPart("plain")
             {
-                Text = "Hello"
+                Text = "Hello I am using Donors website to reach you " +
+                "Right now im am badly in need of  " +DonorBlood+" type blood by the time  "+UserBlood +"  The location of the hospital is  "+ UserLoc+ " it would be very generouos of you if you can " +
+                "come here as soon as possible and donate blood.Thank you.You can reach me at " +
+                " "+UserNumber 
             };
 
             using (var client = new SmtpClient())
