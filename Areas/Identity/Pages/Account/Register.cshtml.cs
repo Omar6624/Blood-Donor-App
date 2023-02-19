@@ -72,16 +72,20 @@ namespace Blood_Donor_App_v4.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name="Name")]
             public string Name { get; set; }
             [Required]
+            [Display(Name = "Address")]
             public string Address { get; set; }
             [Required]
             [StringLength(11, ErrorMessage = "Invalid Phone Number", MinimumLength = 11)]
             [Display(Name = "PhoneNumber")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "BloodType")]
             [Required]
             public string BloodType { get; set; }
             [Required]
+            [Display(Name = "Gender")]
             public string Gender { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
