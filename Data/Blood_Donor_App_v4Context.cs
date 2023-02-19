@@ -24,7 +24,7 @@ namespace Blood_Donor_App_v4.Data
         }
 
         public DbSet<Blood_Donor_App_v4.Models.Donor> Donor { get; set; } = default!;
-        public DbSet<Blood_Donor_App_v4.Models.DonorInfo> DonorInfo { get; set; }=default!;
+        //public DbSet<Blood_Donor_App_v4.Models.DonorInfo> DonorInfo { get; set; }=default!;
         public DbSet<Blood_Donor_App_v4.Models.DonorOtherInfo> DonorOtherInfo { get; set; } = default!;
     }
 

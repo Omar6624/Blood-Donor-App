@@ -42,21 +42,27 @@ namespace Blood_Donor_App_v4.Controllers
             var mailMessage = new MimeMessage();
             mailMessage.From.Add(new MailboxAddress("Donor", "postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org"));
             mailMessage.To.Add(new MailboxAddress("Omar", "omarfaruktasnim555@gmail.com"));
+            mailMessage.To.Add(new MailboxAddress("Omar", "naimulislam19149@gmail.com"));
             mailMessage.Subject = "subject";
             mailMessage.Body = new TextPart("plain")
             {
                 Text = "Hello"
             };
 
-            using (var smtpClient = new SmtpClient())
+            using (var client = new SmtpClient())
             {
                 /*client.ServerCertificateValidationCallback = (s, c, h, e) => true;*/
-                smtpClient.Connect("smtp.mailgun.org", 587, true);
-                smtpClient.Authenticate("190204084@aust.edu", "boxohxtgacjnnlip");
-                smtpClient.Send(mailMessage);
-                smtpClient.Disconnect(true);
+                // XXX - Should this be a little different?
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                client.Connect("smtp.mailgun.org", 587, false);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                client.Authenticate("postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org", "f0f67cbe65c3353c59e527d5f2f855bb-ca9eeb88-467fca7c");
+
+                client.Send(mailMessage);
+                client.Disconnect(true);
             }
-            return (IActionResult)Task.CompletedTask;
+            return View();
         }
 
 
