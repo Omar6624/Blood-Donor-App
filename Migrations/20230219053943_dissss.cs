@@ -5,7 +5,7 @@
 namespace BloodDonorAppv4.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateRegv3 : Migration
+    public partial class dissss : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,6 +21,13 @@ namespace BloodDonorAppv4.Migrations
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Discriminator",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
                 name: "Gender",
