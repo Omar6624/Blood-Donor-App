@@ -24,7 +24,7 @@ namespace Blood_Donor_App_v4.Controllers
                        select b;
             if (!String.IsNullOrEmpty(SearchString) &&  !String.IsNullOrEmpty(SearchType))
             {
-                find = find.Where(b => b.Address.Contains(SearchString.ToLower()) && b.BloodType.Contains(SearchType));
+                find = find.Where(b => b.Address.ToLower().Contains(SearchString.ToLower()) && b.BloodType.Contains(SearchType));
             }
             else
             {
