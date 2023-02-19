@@ -40,7 +40,7 @@ namespace Blood_Donor_App_v4.Controllers
         public async Task<IActionResult> Mail()
         {
             var mailMessage = new MimeMessage();
-            mailMessage.From.Add(new MailboxAddress("Donor", "190204084@aust.edu"));
+            mailMessage.From.Add(new MailboxAddress("Donor", "postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org"));
             mailMessage.To.Add(new MailboxAddress("Omar", "omarfaruktasnim555@gmail.com"));
             mailMessage.Subject = "subject";
             mailMessage.Body = new TextPart("plain")
@@ -50,7 +50,8 @@ namespace Blood_Donor_App_v4.Controllers
 
             using (var smtpClient = new SmtpClient())
             {
-                smtpClient.Connect("smtp.gmail.com", 587, true);
+                /*client.ServerCertificateValidationCallback = (s, c, h, e) => true;*/
+                smtpClient.Connect("smtp.mailgun.org", 587, true);
                 smtpClient.Authenticate("190204084@aust.edu", "boxohxtgacjnnlip");
                 smtpClient.Send(mailMessage);
                 smtpClient.Disconnect(true);
