@@ -19,7 +19,7 @@ namespace Blood_Donor_App_v4.Controllers
             //var data = _context.DonorOtherInfo.ToList();
 
             ViewData["SearchString"] = SearchString;
-            ViewData["SearchType"] = SearchType;
+            ViewData["SearchType"] = SearchType ?? "A+";
             var find = from b in _context.DonorOtherInfo
                        select b;
             if (!String.IsNullOrEmpty(SearchString) &&  !String.IsNullOrEmpty(SearchType))
