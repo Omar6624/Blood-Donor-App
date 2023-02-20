@@ -19,7 +19,7 @@ namespace Blood_Donor_App_v4.Controllers
             //var data = _context.DonorOtherInfo.ToList();
 
             ViewData["SearchString"] = SearchString;
-            ViewData["SearchType"] = SearchType;
+            ViewData["SearchType"] = SearchType ?? "A+";
             var find = from b in _context.DonorOtherInfo
                        select b;
             if (!String.IsNullOrEmpty(SearchString) &&  !String.IsNullOrEmpty(SearchType))
@@ -68,7 +68,7 @@ namespace Blood_Donor_App_v4.Controllers
 
                 client.Connect("smtp.mailgun.org", 587, false);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-                client.Authenticate("postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org", "f0f67cbe65c3353c59e527d5f2f855bb-ca9eeb88-467fca7c");
+                client.Authenticate("postmaster@blood-donor.site", "0e5c9c02a45b685f6b94915d7afff8bc-52d193a0-852595da");
 
                 client.Send(mailMessage);
                 client.Disconnect(true);
