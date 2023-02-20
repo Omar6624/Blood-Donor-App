@@ -73,7 +73,7 @@ namespace Blood_Donor_App_v4.Controllers
                 client.Send(mailMessage);
                 client.Disconnect(true);
             }
-            return View();
+            return View("MailView");
         }
 
 
