@@ -41,7 +41,7 @@ namespace Blood_Donor_App_v4.Controllers
         {
             string[] em = DonorEmail.Split(',');
             var mailMessage = new MimeMessage();
-            mailMessage.From.Add(new MailboxAddress("Donor", "postmaster@sandboxc5335b4c1a54456689371a1a45ffca19.mailgun.org"));
+            mailMessage.From.Add(new MailboxAddress("Donor", "postmaster@blood-donor.site"));
 
             foreach (string EmailAddress in em)
             {
