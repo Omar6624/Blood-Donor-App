@@ -40,6 +40,8 @@
                         <div class="hidden md:flex md:ml-10 md:pr-4 md:space-x-8">
                             <a href="#article" class="font-medium text-gray-500 hover:text-gray-900">Articles</a>
 
+                            <a asp-controller="BloodRiders" asp-action="Index" class="font-medium text-gray-500 hover:text-gray-900">Hire Blood Rider</a>
+
                             <a asp-area="Identity" asp-page="/Account/Register" class="font-medium text-gray-500 hover:text-gray-900">Donate</a>
 
                             @if (SignInManager.IsSignedIn(User))
