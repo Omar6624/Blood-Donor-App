@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="min-h-full flex">
+<div class="min-h-full flex items-center justify-center ">
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div class="mx-auto w-full max-w-sm lg:w-96">
             <div>
@@ -17,7 +17,58 @@
 
                 <div class="mt-6">
                     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-6">
+                        
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div>
+                            <label asp-for="Input.Name" class="block text-sm font-medium text-gray-700"> DonorName </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.Name" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.Name" class="text-rose-600"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label asp-for="Input.Address" class="block text-sm font-medium text-gray-700"> Address </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.Address" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.Address" class="text-rose-600"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label asp-for="Input.PhoneNumber" class="block text-sm font-medium text-gray-700"> PhoneNumber </label>
+                            <div class="mt-1">
+                                <input asp-for="Input.PhoneNumber" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <span asp-validation-for="Input.PhoneNumber" class="text-rose-600"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label asp-for="Input.Gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                            <select asp-for="Input.Gender"  class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option selected>Male</option>
+                                <option>Female</option>
+                                
+                            </select>
+                        </div>
+
+                        <div>
+                            <label asp-for="Input.BloodType" class="block text-sm font-medium text-gray-700">BloodType</label>
+                            <select asp-for="Input.BloodType"  class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option selected>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+
+                            </select>
+                        </div>
+
+
+
                         <div>
                             <label asp-for="Input.Email" class="block text-sm font-medium text-gray-700"> Email </label>
                             <div class="mt-1">
@@ -46,10 +97,14 @@
             </div>
         </div>
     </div>
-    <div class="hidden lg:block relative w-0 flex-1">
-        <img class="absolute inset-0 h-full w-full object-cover" src="~/svg/reg-page-pic.svg" alt="">
-    </div>
 </div>
+
+
+@*    <div class="hidden lg:block relative w-0 flex-1">
+        <img class="absolute inset-0 h-full w-full object-cover" src="~/svg/reg-page-pic.svg" alt="">
+    </div>*@
+
+
 @*    <div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>

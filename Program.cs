@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Blood_Donor_App_v4.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Blood_Donor_App_v4.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Blood_Donor_App_v4Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Blood_Donor_App_v4Context") ?? throw new InvalidOperationException("Connection string 'Blood_Donor_App_v4Context' not found.")));
@@ -11,6 +14,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 
