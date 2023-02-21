@@ -38,7 +38,7 @@ namespace Blood_Donor_App_v4.Controllers
 
             /*return View(await _context.DonorOtherInfo.ToListAsync();*/
         }
-        public async Task<IActionResult> Mail(string DonorEmail,string UserLoc , string UserBlood , string UserNumber,string DonorBlood)
+        public IActionResult Mail(string DonorEmail,string UserLoc , string UserBlood , string UserNumber,string DonorBlood)
         {
             string[] em = DonorEmail.Split(',');
             var mailMessage = new MimeMessage();
