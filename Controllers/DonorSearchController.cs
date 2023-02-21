@@ -21,6 +21,7 @@ namespace Blood_Donor_App_v4.Controllers
             ViewData["SearchString"] = SearchString;
             ViewData["SearchType"] = SearchType ?? "A+";
             var find = from b in _context.DonorOtherInfo
+                       where b.IsActive == true
                        select b;
             if (!String.IsNullOrEmpty(SearchString) &&  !String.IsNullOrEmpty(SearchType))
             {
