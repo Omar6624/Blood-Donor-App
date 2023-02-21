@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations;
 using Blood_Donor_App_v4.Areas.Identity.Pages.Account;
+using System.ComponentModel;
 
 namespace Blood_Donor_App_v4.Models
 {
@@ -20,6 +21,12 @@ namespace Blood_Donor_App_v4.Models
         [Display(Name = "Gender")]
         [Required]
         public string Gender { get; set; }
+
+
+        [Display(Name = "IsActive")]
+        [DefaultValue(true)]
+        [Required]
+        public bool IsActive { get; set; }
 
 
 
